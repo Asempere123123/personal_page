@@ -1,0 +1,17 @@
+[tasks.watch_format]
+install_crate = "rustfmt"
+command = "cargo"
+args = [ "watch", "-x", "fmt"]
+
+[tasks.watch_yew]
+command = "trunk"
+args = ["serve"]
+
+[tasks.watch_tailwind]
+script = "npx tailwindcss -i ./input.css -o ./tailwind.css --watch"
+
+[tasks.watch]
+run_task = { name = ["watch_tailwind",
+                     "watch_yew",
+                     "watch_format"
+                     ], fork = true, parallel = true }
