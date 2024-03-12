@@ -8,7 +8,7 @@ command = "trunk"
 args = ["serve"]
 
 [tasks.watch_tailwind]
-script = "npx tailwindcss -i ./input.css -o ./tailwind.css --watch"
+script = "npx tailwindcss -i ./input.css -o ./tailwind.css --watch --minify"
 
 [tasks.watch]
 run_task = { name = ["watch_tailwind",
